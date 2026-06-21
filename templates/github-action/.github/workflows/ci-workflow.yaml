@@ -1,0 +1,37 @@
+---
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    strategy:
+      max-parallel: 1
+      matrix:
+        # Available Python versions:
+        # https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
+        python: ['3.10', '3.12', '3.14']
+    name: python $\{{ matrix.python }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          set-safe-directory: $\{{ github.workspace }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: $\{{ matrix.python }}
+      - uses: cliffano/command-docker-action@v1.4.0
+        with:
+          command: 'make ci'
+          image: cliffano/studio
+          shell: bash
+      - name: Transform message and show variants
+        id: message
+        uses: ./
+        with:
+          message: 'Hello World'
+      - name: Verify message outputs
+        shell: sh
+        run: |
+          test "$\{{ steps.message.outputs.original }}" = 'Hello World'
+          test "$\{{ steps.message.outputs.reverse }}" = 'dlroW olleH'
+          test "$\{{ steps.message.outputs.uppercase }}" = 'HELLO WORLD'
+          test "$\{{ steps.message.outputs.lowercase }}" = 'hello world'

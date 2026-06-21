@@ -1,0 +1,29 @@
+# Created by https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,python
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,visualstudiocode,python
+
+### macOS ###
+.DS_Store
+
+### Python ###
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+.coverage.*
+
+### Environments ###
+.env
+.venv
+env/
+venv/
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+.history/

@@ -1,0 +1,54 @@
+---
+name: '{{project_name}}'
+description: |
+  {{project_desc}}
+author: '{{author_name}}'
+branding:
+  icon: 'message-circle'
+  color: 'white'
+inputs:
+  message:
+    description: |
+      Message text to transform
+    type: string
+    required: true
+outputs:
+  original:
+    description: The original message text
+    value: $\{{ steps.transform.outputs.original }}
+  reverse:
+    description: The message text in reverse order
+    value: $\{{ steps.transform.outputs.reverse }}
+  uppercase:
+    description: The message text in upper case
+    value: $\{{ steps.transform.outputs.uppercase }}
+  lowercase:
+    description: The message text in lower case
+    value: $\{{ steps.transform.outputs.lowercase }}
+runs:
+  using: 'composite'
+  steps:
+    - name: Transform message
+      id: transform
+      shell: python
+      env:
+        MESSAGE: $\{{ inputs.message }}
+      run: |
+        import os
+
+        message = os.environ['MESSAGE']
+        reverse = message[::-1]
+        uppercase = message.upper()
+        lowercase = message.lower()
+
+        print(f'Original: {message}')
+        print(f'Reverse: {reverse}')
+        print(f'Uppercase: {uppercase}')
+        print(f'Lowercase: {lowercase}')
+
+        output_file = os.environ['GITHUB_OUTPUT']
+        with open(output_file, 'a', encoding='utf-8') as output:
+            output.write(f'original={message}\n')
+            output.write(f'reverse={reverse}\n')
+            output.write(f'uppercase={uppercase}\n')
+            output.write(f'lowercase={lowercase}\n')
