@@ -15,30 +15,34 @@
 
 Transform a message and access all transformed values:
 
-    jobs:
-      build:
-        steps:
-          - id: message
-            uses: {{github_id}}/{{github_repo}}@main
-            with:
-              message: 'Hello World'
-          - run: |
-              echo "Original: $\{{ steps.message.outputs.original }}"
-              echo "Reverse: $\{{ steps.message.outputs.reverse }}"
-              echo "Uppercase: $\{{ steps.message.outputs.uppercase }}"
-              echo "Lowercase: $\{{ steps.message.outputs.lowercase }}"
+```yaml
+jobs:
+  build:
+    steps:
+      - id: message
+        uses: {{github_id}}/{{github_repo}}@main
+        with:
+          message: 'Hello World'
+      - run: |
+          echo "Original: $\{{ steps.message.outputs.original }}"
+          echo "Reverse: $\{{ steps.message.outputs.reverse }}"
+          echo "Uppercase: $\{{ steps.message.outputs.uppercase }}"
+          echo "Lowercase: $\{{ steps.message.outputs.lowercase }}"
+```
 
 Transform a message supplied via an environment variable:
 
-    env:
-      MESSAGE: 'GitHub Action'
-    jobs:
-      build:
-        steps:
-          - id: message
-            uses: {{github_id}}/{{github_repo}}@main
-            with:
-              message: $\{{ env.MESSAGE }}
+```yaml
+env:
+  MESSAGE: 'GitHub Action'
+jobs:
+  build:
+    steps:
+      - id: message
+        uses: {{github_id}}/{{github_repo}}@main
+        with:
+          message: $\{{ env.MESSAGE }}
+```
 
 ## Configuration
 

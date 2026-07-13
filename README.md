@@ -21,7 +21,9 @@ It provides the following components:
 
 Generate code generator project:
 
-    make generate-github-action
+```shell
+make generate-github-action
+```
 
 This component will prompt you the following inputs:
 
@@ -37,7 +39,9 @@ This component will prompt you the following inputs:
 
 Move to the generated project directory:
 
-    cd stage/github-action/
+```shell
+cd stage/github-action/
+```
 
 ## Configuration
 

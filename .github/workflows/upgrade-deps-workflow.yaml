@@ -5,17 +5,17 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: '24'
       - run: npm install -g bob@4
       - run: bob updep
       - uses: cliffano/command-docker-action@v1.4.0
         with:
-          image: cliffano/studio:2.16.0
+          image: cliffano/studio:3.2.0
           command: 'make ci'
       - uses: cliffano/save-changes-action@v1.0.0
         with:

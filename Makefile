@@ -22,8 +22,10 @@ test-github-action:
 		--project_desc "github-action project description" \
 		--author_name "Cliffano Subagio" \
 		--author_email "blah@cliffano.com" \
+		--author_url "https://github.com/cliffano" \
 		--github_id "cliffano" \
-		--github_repo "generator-github-action"
+		--github_repo "generator-github-action" \
+		--github_token_prefix "STUDIO"
 	cd stage/github-action/ && \
 	  make ci
 
