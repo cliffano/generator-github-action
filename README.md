@@ -16,6 +16,7 @@ It provides the following components:
 | Component | Description |
 |-----------|-------------|
 | github-action | <some_component_desc> |
+| github-action-partials | Partial snippets for GitHub Action README sections |
 
 ## Usage
 
@@ -23,6 +24,12 @@ Generate code generator project:
 
 ```shell
 make generate-github-action
+```
+
+Generate GitHub Action partial snippets:
+
+```shell
+make generate-github-action-partials
 ```
 
 This component will prompt you the following inputs:

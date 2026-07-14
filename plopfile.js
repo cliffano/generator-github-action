@@ -84,4 +84,19 @@ export default function (plop) {
       }
     ]
   });
+
+  plop.setGenerator('github-action-partials', {
+    description: 'Github-action partials Plop',
+    prompts: prompts,
+    actions: [
+      {
+        type: 'addMany',
+        destination: 'stage/github-action-partials',
+        templateFiles: [
+          'templates/github-action-partials/*'
+        ],
+        base: 'templates/github-action-partials'
+      }
+    ]
+  });
 };
