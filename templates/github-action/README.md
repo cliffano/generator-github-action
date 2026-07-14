@@ -56,3 +56,13 @@ jobs:
 | reverse | Message text in reverse order | `dlroW olleH` |
 | uppercase | Message text in upper case | `HELLO WORLD` |
 | lowercase | Message text in lower case | `hello world` |
+
+## Colophon
+
+<!-- BEGIN:DEVELOPERS_GUIDE -->
+To be populated by generator-github-action github-action-partials
+<!-- END:DEVELOPERS_GUIDE -->
+
+<!-- BEGIN:BUILD_REPORTS -->
+To be populated by generator-github-action github-action-partials
+<!-- END:BUILD_REPORTS -->
