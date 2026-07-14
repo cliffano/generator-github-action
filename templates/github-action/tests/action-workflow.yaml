@@ -1,0 +1,15 @@
+name: Test Local Action Outside Standard GitHub Workflows Directory
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+      - name: Test Action
+        uses: ./
+        with:
+          github_token: "test-github-token"
+          message: 'Hello World'
+          push_changes: 'false'
