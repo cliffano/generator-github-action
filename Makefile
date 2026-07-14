@@ -47,4 +47,7 @@ test-github-action-partials:
 		--github_repo "generator-github-action" \
 		--github_token_prefix "STUDIO"
 
-.PHONY: ci clean clean-github-action clean-github-action-partials stage deps generate-github-action generate-github-action-partials test-github-action test-github-action-partials
+update-actobat-to-latest:
+	cd templates/github-action/ && make update-to-latest
+
+.PHONY: ci clean clean-github-action clean-github-action-partials stage deps generate-github-action generate-github-action-partials test-github-action test-github-action-partials update-actobat-to-latest
