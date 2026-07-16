@@ -33,7 +33,7 @@ test-github-action:
 		--github_repo "generator-github-action" \
 		--github_token_prefix "STUDIO"
 	cd stage/github-action/ && \
-	  make ci
+	  make deps ci
 
 test-github-action-partials:
 	node_modules/.bin/plop github-action-partials -- \
