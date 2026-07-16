@@ -1,10 +1,9 @@
 <!-- BEGIN:AVATAR -->
-![Avatar](avatar.jpg)
+To be populated by generator-github-action github-action-partials
 <!-- END:AVATAR -->
 
 <!-- BEGIN:BADGES -->
-[![Build Status](https://github.com/{{github_id}}/{{github_repo}}/workflows/CI/badge.svg)](https://github.com/{{github_id}}/{{github_repo}}/actions?query=workflow%3ACI)
-[![Security Status](https://snyk.io/test/github/{{github_id}}/{{github_repo}}/badge.svg)](https://snyk.io/test/github/{{github_id}}/{{github_repo}})
+To be populated by generator-github-action github-action-partials
 <!-- END:BADGES -->
 
 # {{project_name}}

@@ -1,0 +1,21 @@
+name: Example Workflow
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+      - name: Use Local Action
+        uses: ./
+        with:
+          github_token: "test-github-token"
+          message: 'Hello World'
+          push_changes: 'false'
+      # - name: Use Remote Action
+      #   uses: cliffano/github-action-example@main
+      #   with:
+      #     github_token: "test-github-token"
+      #     message: 'Hello World'
+      #     push_changes: 'false'
