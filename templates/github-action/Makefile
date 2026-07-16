@@ -164,7 +164,7 @@ update-partials: stage
 
 lint:
 	mkdir -p docs/lint/
-	yamllint action.yml .github/workflows/*.yaml 2>&1 | tee docs/lint/yamllint.txt
+	$(call python_venv,yamllint action.yml .github/workflows/*.yaml 2>&1 | tee docs/lint/yamllint.txt)
 	$(call python_venv,actionlint -shellcheck= .github/workflows/*.yaml)
 
 test:
