@@ -2,6 +2,8 @@
 name: '{{project_name}}'
 description: |
   {{project_desc}}
+# Custom version field
+version: 0.9.0-pre.0
 author: '{{author_name}}'
 branding:
   icon: 'message-circle'
