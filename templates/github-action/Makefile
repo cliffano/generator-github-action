@@ -4,7 +4,7 @@
 ################################################################
 
 # Actobat's version number
-ACTOBAT_VERSION = 0.10.0
+ACTOBAT_VERSION = 0.11.1-pre.0
 
 ################################################################
 # User configuration variables
@@ -160,7 +160,7 @@ update-dotfiles: stage
 # Update partial snippets using the generator-github-action
 $(eval $(call set_generator_vars,update-partials,actobat))
 update-partials: stage
-	$(call update_partials_from_generator,github-action,AVATAR BADGES)
+	$(call update_partials_from_generator,github-action,AVATAR BADGES $(call update_partials_from_generator,github-action,AVATAR BADGES DEVELOPERS_GUIDE BUILD_REPORTS)
 
 lint:
 	mkdir -p docs/lint/
