@@ -4,7 +4,7 @@
 ################################################################
 
 # Actobat's version number
-ACTOBAT_VERSION = 0.11.1-pre.0
+ACTOBAT_VERSION = 1.0.0
 
 ################################################################
 # User configuration variables
