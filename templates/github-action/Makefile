@@ -4,7 +4,7 @@
 ################################################################
 
 # Actobat's version number
-ACTOBAT_VERSION = 1.0.0
+ACTOBAT_VERSION = 1.0.1-pre.0
 
 ################################################################
 # User configuration variables
@@ -77,7 +77,11 @@ define update_dotfiles_from_generator
 		--github_token_prefix "$(GENERATOR_INPUTS_GITHUB_TOKEN_PREFIX)"
 	cd stage/generator-$(1)/stage/$(GENERATOR_COMPONENT) && \
 	  for dotfile in $(2); do \
-		cp -R "$$dotfile" ../../../../"$$dotfile"; \
+		if [ -d "$$dotfile" ]; then \
+		  mkdir -p ../../../../"$$dotfile" && cp -R "$$dotfile"/. ../../../../"$$dotfile"/; \
+		else \
+		  cp -R "$$dotfile" ../../../../"$$dotfile"; \
+		fi; \
 	  done
 endef
 
@@ -157,7 +161,7 @@ update-to-version:
 # Update dotfiles using the generator-github-action
 $(eval $(call set_generator_vars,update-dotfiles,actobat))
 update-dotfiles: stage
-	$(call update_dotfiles_from_generator,github-action,.github/. .gitignore requirements.txt .rtk.json .yamllint)
+	$(call update_dotfiles_from_generator,github-action,.github .gitignore requirements.txt .rtk.json .yamllint)
 
 # Update partial snippets using the generator-github-action
 $(eval $(call set_generator_vars,update-partials,actobat))
