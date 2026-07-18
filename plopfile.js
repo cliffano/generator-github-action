@@ -78,6 +78,7 @@ export default function (plop) {
         templateFiles: [
           'templates/github-action/.*/*/*/*',
           'templates/github-action/.*/*/*',
+          'templates/github-action/.*/*',
           'templates/github-action/**/.*',
           'templates/github-action/**/*'
         ]
