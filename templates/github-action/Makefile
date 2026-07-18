@@ -133,7 +133,8 @@ deps:
 
 deps-upgrade:
 	python3 -m venv .venv
-	$(call python_venv,python3 -m pip install --upgrade -r requirements.txt)
+	$(call python_venv,python3 -m pip install -r requirements-dev.txt)
+	$(call python_venv,pip-compile --upgrade)
 
 deps-extra-apt:
 	apt-get update
