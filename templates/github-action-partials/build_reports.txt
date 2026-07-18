@@ -2,4 +2,5 @@ Build reports:
 
 * [Lint report](https://{{github_id}}.github.io/{{github_repo}}/lint/yamllint.txt)
 * [Test report](https://{{github_id}}.github.io/{{github_repo}}/test/act.txt)
+* [API documentation](https://{{github_id}}.github.io/{{github_repo}}/doc/action-docs/index.html)
 

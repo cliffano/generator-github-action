@@ -129,6 +129,7 @@ deps:
 	python3 -m venv .venv
 	$(call python_venv,python3 -m pip install -r requirements.txt)
 	gh extension install nektos/gh-act
+	npm install -g action-docs
 	$(call deps_extra)
 
 deps-upgrade:
@@ -190,4 +191,13 @@ release-patch:
 
 release: release-minor
 
-.PHONY: $(1) all ci stage clean rmdeps deps deps-upgrade deps-extra-apt update-to-latest update-to-main update-to-version update-dotfiles update-partials lint test release-major release-minor release-patch release
+################################################################
+# Documentation targets
+
+doc: stage
+	rm -rf docs/doc/action-doc/ stage/doc/action-doc/
+	mkdir -p docs/doc/action-doc/ stage/doc/action-doc/
+	action-docs --source action.yml --output stage/doc/action-doc.md
+	$(call python_venv,markdown-docs --source stage/doc/doc.md --output docs/doc/action-doc/index.html)
+
+.PHONY: $(1) all ci stage clean rmdeps deps deps-upgrade deps-extra-apt update-to-latest update-to-main update-to-version update-dotfiles update-partials lint test doc release-major release-minor release-patch release
