@@ -4,7 +4,7 @@
 ################################################################
 
 # Actobat's version number
-ACTOBAT_VERSION = 1.0.1
+ACTOBAT_VERSION = 1.1.0
 
 ################################################################
 # User configuration variables
@@ -158,6 +158,7 @@ update-to-version:
 $(eval $(call set_generator_vars,update-dotfiles,actobat))
 update-dotfiles: stage
 	$(call update_dotfiles_from_generator,github-action,.github/ .gitignore requirements.txt .rtk.json .yamllint)
+	$(call run_hook,x-post-update-dotfiles)
 
 # Update partial snippets using the generator-github-action
 $(eval $(call set_generator_vars,update-partials,actobat))
@@ -196,9 +197,9 @@ release: release-minor
 # Documentation targets
 
 doc: stage
-	rm -rf docs/doc/action-doc/ stage/doc/action-doc/
-	mkdir -p docs/doc/action-doc/ stage/doc/action-doc/
-	action-docs --source action.yml > stage/doc/action-doc.md
-	$(call python_venv,python3 -m markdown stage/doc/action-doc.md > docs/doc/action-doc/index.html)
+	rm -rf docs/doc/action-docs/ stage/doc/
+	mkdir -p docs/doc/action-docs/ stage/doc/
+	action-docs --source action.yml > stage/doc/action-docs.md
+	$(call python_venv,python3 -m markdown stage/doc/action-docs.md > docs/doc/action-docs/index.html)
 
 .PHONY: $(1) all ci stage clean rmdeps deps deps-upgrade deps-extra-apt update-to-latest update-to-main update-to-version update-dotfiles update-partials lint test doc release-major release-minor release-patch release
