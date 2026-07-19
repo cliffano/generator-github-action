@@ -61,3 +61,18 @@ cd stage/github-action/
 | author_email | blah@cliffano.com |
 | github_id | cliffano |
 | github_repo | generator-github-action |
+
+## Colophon
+
+<!-- BEGIN:DEVELOPERS_GUIDE -->
+[Developer's Guide](https://cliffano.github.io/developers-guide-makefile.html)
+<!-- END:DEVELOPERS_GUIDE -->
+
+<!-- BEGIN:BUILD_REPORTS -->
+Build reports:
+
+<!-- END:BUILD_REPORTS -->
+
+Related Projects:
+
+* [Actobat](https://github.com/cliffano/actobat) - Makefile for building GitHub Actions
