@@ -166,14 +166,14 @@ update-partials: stage
 	$(call update_partials_from_generator,github-action,AVATAR BADGES DEVELOPERS_GUIDE BUILD_REPORTS)
 
 lint:
-	mkdir -p docs/lint/
-	$(call python_venv,yamllint action.yml .github/workflows/*.yaml > docs/lint/yamllint.txt 2>&1)
-	@if [ ! -s docs/lint/yamllint.txt ]; then echo "yamllint: no issues found" > docs/lint/yamllint.txt; fi
+	mkdir -p stage/gh-pages/lint/
+	$(call python_venv,yamllint action.yml .github/workflows/*.yaml > stage/gh-pages/lint/yamllint.txt 2>&1)
+	@if [ ! -s stage/gh-pages/lint/yamllint.txt ]; then echo "yamllint: no issues found" > stage/gh-pages/lint/yamllint.txt; fi
 	$(call python_venv,actionlint -shellcheck= .github/workflows/*.yaml)
 
 test:
-	mkdir -p docs/test/
-	gh act -P ubuntu-26.04=catthehacker/ubuntu:act-latest -W tests/action-workflow.yaml 2>&1 | tee docs/test/act.txt
+	mkdir -p stage/gh-pages/test/
+	gh act -P ubuntu-26.04=catthehacker/ubuntu:act-latest -W tests/action-workflow.yaml 2>&1 | tee stage/gh-pages/test/act.txt
 
 test-examples:
 	mkdir -p stage/test-examples/
@@ -197,9 +197,9 @@ release: release-minor
 # Documentation targets
 
 doc: stage
-	rm -rf docs/doc/action-docs/ stage/doc/
-	mkdir -p docs/doc/action-docs/ stage/doc/
+	rm -rf stage/gh-pages/doc/action-docs/ stage/doc/
+	mkdir -p stage/gh-pages/doc/action-docs/ stage/doc/
 	action-docs --source action.yml > stage/doc/action-docs.md
-	$(call python_venv,python3 -m markdown stage/doc/action-docs.md > docs/doc/action-docs/index.html)
+	$(call python_venv,python3 -m markdown stage/doc/action-docs.md > stage/gh-pages/doc/action-docs/index.html)
 
 .PHONY: $(1) all ci stage clean rmdeps deps deps-upgrade deps-extra-apt update-to-latest update-to-main update-to-version update-dotfiles update-partials lint test doc release-major release-minor release-patch release
