@@ -173,7 +173,7 @@ lint:
 
 test:
 	mkdir -p docs/test/
-	gh act -P ubuntu-24.04=catthehacker/ubuntu:act-latest -W tests/action-workflow.yaml 2>&1 | tee docs/test/act.txt
+	gh act -P ubuntu-26.04=catthehacker/ubuntu:act-latest -W tests/action-workflow.yaml 2>&1 | tee docs/test/act.txt
 
 test-examples:
 	mkdir -p stage/test-examples/
