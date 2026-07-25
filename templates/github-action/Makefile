@@ -4,7 +4,7 @@
 ################################################################
 
 # Actobat info
-ACTOBAT_VERSION = 1.1.1-pre.0
+ACTOBAT_VERSION = 1.2.0
 
 UPDATE_MAKEFILE = actobat
 UPDATE_GENERATOR = github-action
