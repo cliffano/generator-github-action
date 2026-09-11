@@ -4,6 +4,7 @@
 
 <!-- BEGIN:BADGES -->
 [![Build Status](https://github.com/cliffano/generator-github-action/workflows/CI/badge.svg)](https://github.com/cliffano/generator-github-action/actions?query=workflow%3ACI)
+[![Code Scanning Status](https://github.com/cliffano/generator-github-action/workflows/CodeQL/badge.svg)](https://github.com/cliffano/generator-github-action/actions?query=workflow%3ACodeQL)
 [![Security Status](https://snyk.io/test/github/cliffano/generator-github-action/badge.svg)](https://snyk.io/test/github/cliffano/generator-github-action)
 <!-- END:BADGES -->
 
