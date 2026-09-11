@@ -44,6 +44,17 @@ This component will prompt you the following inputs:
 | Author URL | The author's website URL. |
 | GitHub ID | The GitHub ID of the project repo. |
 
+## Usage With Config File
+
+Each component also has a `-with-config` target that skips the interactive prompts by reading the inputs from an Actobat YAML config file. See [examples/](examples/) for sample config files for each component.
+
+Pass the config file path via the `GENERATOR_CONFIG` variable, it defaults to `actobat.yml`:
+
+```shell
+make generate-github-action-with-config GENERATOR_CONFIG=path/to/actobat.yml
+make generate-github-action-partials-with-config GENERATOR_CONFIG=path/to/actobat.yml
+```
+
 Move to the generated project directory:
 
 ```shell
