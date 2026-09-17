@@ -10,7 +10,7 @@
 
 # Generator GitHub Action
 
-Generator GitHub Action is Code generator for GitHub Actions.
+Generator GitHub Action is a code generator for GitHub Actions.
 
 It provides the following components:
 
