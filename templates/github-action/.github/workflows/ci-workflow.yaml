@@ -14,6 +14,7 @@ jobs:
           image: cliffano/studio:4.0.0
           shell: bash
       - uses: peaceiris/actions-gh-pages@v4
+        if: github.event_name != 'pull_request'
         with:
           github_token: $\{{ secrets.{{github_token_prefix}}_GITHUB_TOKEN }}
           publish_dir: stage/gh-pages
